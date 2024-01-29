@@ -1,0 +1,103 @@
+@use "../styles/mixins.scss" as mixin;
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header{
+
+    .signUp{
+        height: 2rem;
+        background-color: mixin.$primary-color;
+        color: mixin.$white;
+        @include mixin.flex($horizontal:center,$vertical:normal);
+
+        & span:nth-child(2){
+            text-decoration: underline;
+            margin-left: 0.5rem;
+            cursor: pointer;
+        }
+    }
+
+    .header{
+        @include mixin.flex($horizontal:space-between,$vertical:center);
+        padding: 0rem 1rem;
+        background-color: mixin.$white;
+        
+    
+        .logoTitle{
+            @include mixin.flex($horizontal:normal,$vertical:center);
+    
+            & img{
+                width: 5rem;
+                height: 5rem;
+                opacity: 0.6;
+            }
+    
+            & h1{
+                font-family: cursive;
+                font-weight: 2000;
+                cursor: pointer;
+            }
+    
+            & h1:nth-child(3){
+                color: mixin.$primary-color;
+            }
+        }
+    
+        .extra{
+            @include mixin.flexGap($horizontal:normal,$vertical:center,$gap:1rem);
+    
+            .circle{
+                color: mixin.$primary-color;
+            }
+    
+            & span{
+                font-weight: 600;
+                cursor: pointer;
+                transition: all .2s ease-in-out;
+    
+                &:hover {
+                    transform: translateX(2);
+                  }
+            }
+        }
+    
+        .searchIcons{
+            @include mixin.flexGap($horizontal:normal,$vertical:center,$gap:1rem);
+
+            .cart{
+
+                & span{
+                    position: absolute;
+                    width: 0.7rem;
+                    height: 0.7rem;
+                    border-radius: 50%;
+                    background-color: mixin.$primary-color;
+                    // left: -1px;
+                } 
+            }
+        }
+    
+        & input{
+            width: 20rem;
+            height: 2rem;
+        }
+    
+        .icons{
+            font-size: 2rem;
+            cursor: pointer;
+        }
+    
+    }
+}
+
+
+// h1{
+//     font-size: 8rem;
+// }
+

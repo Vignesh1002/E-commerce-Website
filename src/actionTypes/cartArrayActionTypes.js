@@ -1,0 +1,10 @@
+export const UPDATE_ARRAY = "UPDATE_ARRAY";
+export const UPDATE_ARRAY_SUCCESS = "UPDATE_ARRAY_SUCCESS";
+
+//change array
+export const CHANGE_ARRAY = "CHANGE_ARRAY";
+export const CHANGE_ARRAY_SUCCESS = "CHANGE_ARRAY_SUCCESS";
+
+//empty array
+export const EMPTY_ARRAY = "EMPTY_ARRAY";
+export const EMPTY_ARRAY_SUCCESS = "EMPTY_ARRAY_SUCCESS";

@@ -1,0 +1,225 @@
+@use "../styles/mixins.scss" as mixin;
+
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.mainContent{
+    background-color: mixin.$light-gray;
+    height: calc(100vh - 4.5rem);
+    @include mixin.flexGap($horizontal:center,$vertical:normal,$gap:1rem);
+    padding: 1rem;
+
+    .totalCartItems{
+        background-color: mixin.$white;
+        border-radius: 2%;
+        width: 60%;
+
+        & h2{
+            padding: 1rem;
+            border-bottom: 0.1rem solid mixin.$light-gray;
+        }
+
+        .cartItems{
+            .circleDiv{
+                @include mixin.flexGap($horizontal:center,$vertical:center,$gap:1rem);
+                flex-direction: column;
+                margin-top: 10rem;
+
+                .cartCircle{
+                    background-color: mixin.$light-gray;
+                    width: 5rem;
+                    height: 5rem;
+                    border-radius: 50%;
+                    @include mixin.flex($horizontal:center,$vertical:center);
+
+                    .cartIcon{
+                        font-size: 3rem;
+                        color: mixin.$primary-color;
+                    }
+                }
+
+                & p:nth-child(2){
+                    font-weight: bold;
+                }
+
+                & p:nth-child(3){
+                    color: mixin.$medium-gray;
+
+                    & p{
+                        font-weight: 600;
+                    }
+
+                    & p:nth-child(2){
+                        margin-left: 5rem;
+                    }
+                }
+
+                & button{
+                    background-color: mixin.$primary-color;
+                    border: none;
+                    width: 5.5rem;
+                    height: 3rem;
+                    font-weight: bold;
+                    cursor: pointer;
+                    color: mixin.$white;
+                }
+                
+            }
+            
+
+            .singleCartContainer{
+                @include mixin.flexGap($horizontal:normal,$vertical:normal,$gap:10rem);
+                padding: 1rem;
+
+                & img{
+                    width: 15rem;
+                    height: 10rem;
+                }
+
+                .cartDetails{
+                    @include mixin.flexGap($horizontal:normal,$vertical:normal,$gap:1rem);
+                    flex-direction: column;
+
+                    .title{
+                        display: inline-block;
+                        margin: 0;
+                    }
+
+                    .price{
+                        float: right;
+                    }
+
+                    .quantityDelete{
+                        @include mixin.flexGap($horizontal:normal,$vertical:center,$gap:14rem);
+
+                        .quantityCount{
+                            @include mixin.flex($horizontal:normal,$vertical:center);
+
+                            & p:nth-child(2) input{
+                                width: 2rem;
+                                height: 2rem;
+                                text-align: center;
+                                background-color: mixin.$light-gray;
+                                border: none;
+                            }
+
+                            .addMinusQuantity{
+                                width: 2rem;
+                                height: 2rem;
+                                background-color: mixin.$primary-color;
+                                color: #000000;
+                                font-size: 1.2rem;
+                                padding: 0.3rem;
+                                cursor: pointer;
+                            }
+                        }
+                        
+                        .trash{
+                            font-size: 1.5rem;
+                            color: mixin.$red;
+                            opacity: 0.8;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .totalBill{
+        background-color: mixin.$white;
+        border-radius: 2%;
+        padding: 1rem;
+
+        & h2{
+            padding: 1rem;
+            border-bottom: 0.1rem solid mixin.$light-gray;
+            margin: 0;
+        }
+
+        .delivery{
+            padding: 1rem 0rem;
+            display: flex;
+
+            & button{
+                padding: 1rem 1.5rem;
+                background-color: mixin.$primary-color;
+                border: none;
+                cursor: pointer;
+            }
+
+            // & button:nth-child(2){
+            //     opacity: 0.4;
+            // }
+        }
+
+        .deliveryDate{
+            padding: 0.5rem 0rem;
+            font-size: 0.8rem;
+            color:#a4a6af;
+        }
+
+        .promo{
+            padding: 1rem 0rem;
+
+            & input{
+                height: 2rem;
+                width: 12rem;
+                border: 0.1rem solid #efefef;
+            }
+
+            & button{
+                height: 2rem;
+                width: 4rem;
+                // padding: 1rem 0.5rem;
+                float: right;
+                outline: none;
+                border: none;
+                background-color: mixin.$primary-color;
+            }
+        }
+
+        .billCalculation{
+
+            & p{
+                padding: 0.5rem 0rem;
+
+                & span:nth-child(2){
+                    float: right;
+                }
+            }
+
+        }
+
+        .totalBillPrice{
+            padding: 0.5rem 0rem;
+
+            & span:nth-child(2){
+                float: right;
+            }
+        }
+
+        .checkoutShoppingButtons{
+            @include mixin.flexGap($horizontal:normal,$vertical:center,$gap:2rem);
+            flex-direction: column;
+            margin-top: 2rem;
+
+            & button{
+                padding: 1rem;
+                background-color: mixin.$primary-color;
+                border: none;
+                outline: none;
+                width: 10rem;
+                cursor: pointer;
+            }
+
+            & button:nth-child(2){
+                background-color: mixin.$light-gray;
+            }
+        }
+    }
+}

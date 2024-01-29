@@ -1,0 +1,21 @@
+$primary-color : #BC8CF2;
+$secondary-color: #fff;
+$light-gray: #e8e8e8;
+$medium-gray:#a4a6af;
+$black: #000000;
+$white: #fff;
+$red: #ff0000;
+
+
+@mixin flex($horizontal,$vertical){
+    display: flex;
+    justify-content: $horizontal;
+    align-items: $vertical;
+}
+
+@mixin flexGap($horizontal,$vertical,$gap){
+    display: flex;
+    justify-content: $horizontal;
+    align-items: $vertical;
+    gap: $gap;
+}

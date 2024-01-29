@@ -1,0 +1,137 @@
+@use "../styles/mixins.scss" as mixin;
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    background-color: mixin.$light-gray;
+    height: 100vh;
+
+    .header{
+        background-color: mixin.$white;
+    }
+
+    .singleProduct{
+        padding: 1rem;
+        height: calc(100vh - 4.5rem);
+        // overflow: scroll;
+        @include mixin.flex($horizontal:center,$vertical:center);
+
+        .centreDiv{
+            background-color: mixin.$white;
+            padding: 1rem;
+            @include mixin.flexGap($horizontal:normal,$vertical:normal,$gap:3rem);
+        }
+
+        .singleProductImages{
+
+            .mainImage{
+                width: 37rem;
+                height: 24rem;
+            }
+
+            .sideImages{
+                @include mixin.flexGap($horizontal:normal,$vertical:normal,$gap:1rem);
+                margin-top: 3rem;
+    
+                & img{
+                    opacity: 0.5;
+                    width: 6.5rem;
+                    height: 6rem;
+                }
+            }
+            
+        }
+
+        .singleProductContent{
+            @include mixin.flexGap($horizontal:normal,$vertical:normal,$gap:1rem);
+            flex-direction: column;
+
+            .productDetails{
+                @include mixin.flexGap($horizontal:normal,$vertical:normal,$gap:1rem);
+
+                & p span:nth-child(1){
+                    color: mixin.$primary-color;
+                    opacity: 2.5;
+                }
+
+                & p:nth-child(even){
+                    color: mixin.$primary-color;
+                    font-weight: bolder;
+                }
+            }
+
+            .priceBox{
+                padding: 1rem;
+                background-color: mixin.$light-gray;
+
+                & div:nth-child(1){
+                    & span{
+                        margin-left: 1.2rem;
+                    }
+                }
+
+                & div:nth-child(2){
+                    & span:nth-child(1){
+                        font-size: 2rem;
+                        color: mixin.$primary-color;
+                    }
+                    & span:nth-child(2){
+                        background-color: mixin.$primary-color;
+                        color: mixin.$white;
+                        font-weight: bolder;
+                        margin-left: 1rem;
+                        padding: 0.2rem;
+                        position: relative;
+                        bottom: 3px;
+                        animation: blink 2s linear infinite;
+                    }
+                }
+
+                & s{
+                    color: mixin.$medium-gray;
+                }
+            }
+
+            & h3{
+                padding-bottom: 1rem;
+                border-bottom: 1px solid mixin.$light-gray;
+            }
+
+            & div{
+                padding: 0.5rem 0rem;
+            }
+
+            
+
+            & button{
+                padding: 1rem;
+                margin-top: 1rem;
+                display: block;
+                background-color: mixin.$primary-color;
+                border: none;
+                cursor: pointer;
+                width: 8rem;
+                @include mixin.flexGap($horizontal:normal,$vertical:normal,$gap:0.5rem);
+            }
+
+        }
+
+        
+    }
+}
+
+@keyframes grow {
+    0% { transform: scale(1); }
+    50% { transform: scale(4);  }
+    100% { transform: scale(1); }
+}
+
+@keyframes blink{
+    0%{opacity: 0;}
+    50%{opacity: .5;}
+    100%{opacity: 1;}
+    }

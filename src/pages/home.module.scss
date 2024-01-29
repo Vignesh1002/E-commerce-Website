@@ -1,0 +1,302 @@
+@use "../styles/mixins.scss" as mixin;
+
+
+.mainContent{
+  @include mixin.flex($horizontal : normal,$vertical : normal);
+  margin-top: 4rem;
+}
+.sideContainer{
+    border: 1px solid mixin.$black;
+    @include mixin.flexGap($horizontal : flex-start,$vertical : normal,$gap : 2rem);
+    flex-direction: column;
+    padding: 2rem 1rem 1rem 1rem;
+    width: 20rem;
+    height: 35rem;
+
+    & .priceSpan{
+        padding: 0.5rem;
+    }
+
+    .filterDiv{
+        @include mixin.flex($horizontal:center,$vertical:normal);
+        & button{
+            width: 6rem;
+            height: 3rem;
+            background-color: mixin.$primary-color;
+            outline: none;
+            border: none;
+            cursor: pointer;
+        }
+      }
+
+    .priceSlider{
+        padding: 0.6rem;
+        border-bottom: 1px solid #eeeee4;
+
+        .priceInput{
+            @include mixin.flexGap($horizontal:normal,$vertical:center,$gap:1rem);
+            margin: 5px 0 35px;
+
+            .field{
+                display: flex;
+                width: 100%;
+                height: 45px;
+                align-items: center;
+
+                & input{
+                    width: 4rem;
+                    height: 100%;
+                    font-size: 14px;
+                    margin-left: 12px;
+                    border-radius: 5px;
+                    text-align: center;
+                    border: 1px solid #999;
+                    // --moz-appearance: textfield;
+                  }
+            }
+
+            .separator{
+                font-size: 1.2rem;
+              }
+
+            
+        }
+
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        }
+
+        .slider{
+          width: 100%;
+          height: 5px;
+          background-color: mixin.$light-gray;
+          border-radius: 5px;
+          :global(.thumb) {
+            position: absolute;
+            bottom: -3.5px;
+            width: 1rem;
+            height: 1rem;
+            cursor: pointer;
+            background-color: mixin.$primary-color;
+            border-radius: 50%;
+          }
+        }  
+
+        
+
+        .rangeInput{
+            position: relative;
+            margin-bottom: 1.5rem;
+
+            input{
+                position: absolute;
+                width: 100%;
+                height: 5px;
+                top: -5px;
+                background: none;
+                pointer-events: none;
+                -webkit-appearance: none;
+                // --moz-appearance: none;
+              }
+          }
+
+          // input[type="range"]::-webkit-slider-thumb{
+          //   height: 17px;
+          //   width: 17px;
+          //   border-radius: 50%;
+          //   background: mixin.$primary-color;
+          //   pointer-events: auto;
+          //   -webkit-appearance: none;
+          //   box-shadow: 0 0 6px rgba(0,0,0,0.05);
+          // }
+
+          
+        }
+
+        .categoriesCheckList{
+          border-bottom: 1px solid #eeeee4;
+          padding: 1rem 0rem;
+
+          
+
+          .checkListCaption{
+            @include mixin.flex($horizontal:space-between,$vertical:center);
+            cursor: pointer;
+          }
+
+          .listContainer li {
+            opacity: 0.5;
+          }
+
+          .listContainer li input[type="checkbox"]:checked + label {
+            opacity: 1;
+          }
+          
+          & ul{
+            padding: 0;
+            height: 10rem;
+            overflow: scroll;
+           -webkit-scrollbar-color: mixin.$primary-color;
+
+            .checkList{
+              list-style: none;
+              padding: 0.7rem 0rem;
+              opacity: 0.6;
+
+                input[type='checkbox'] {
+                  accent-color: mixin.$primary-color;
+                  &:checked{
+                    opacity: 1;
+                    + .checkList{
+                      opacity: 1;
+                    }
+                  }
+                }
+
+            }
+
+            // & input[type="checkbox"]:checked + .checkList {
+            //   opacity: 1;
+            // }
+          }
+        }
+
+        .filterButton{
+          @include mixin.flex($horizontal:center,$vertical:normal);
+
+          & button{
+            width: 6rem;
+            height: 3rem;
+            background-color: mixin.$primary-color;
+            border: none;
+            cursor: pointer;
+          }
+        }
+}
+
+.mainContainer{
+  @include mixin.flexGap($horizontal:center,$vertical:normal,$gap:5rem);
+  flex-wrap: wrap;
+  padding: 1rem 2rem;
+  height: calc(100vh - 11rem);
+  overflow: scroll;
+  width: 100vw;
+
+  .noMatch{
+    @include mixin.flex($horizontal:normal,$vertical:center);
+    flex-direction: column;
+    width: 350px; height: 120px;
+    background: mixin.$light-gray;
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    position: relative;
+    margin: 120px auto 20px;
+
+    & p:nth-child(1){
+      font-size: 2rem;
+    }
+
+    & p:nth-child(2){
+      color: mixin.$primary-color;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+  }
+
+  .noMatch:after, .noMatch:before {
+    content: '';
+    position: absolute;
+    background: mixin.$light-gray;
+    z-index: -1
+  }
+  
+  .noMatch:after {
+    width: 100px; height: 100px;
+    top: -50px; left: 50px;
+    border-radius: 100px;
+  }
+  
+  .noMatch:before {
+    width: 180px; height: 180px;
+    top: -90px; right: 50px;
+    border-radius: 200px;
+  }
+
+  .cardBox{
+    padding: 1rem;
+    border: 1px solid rgba(#F2F4F8, 1);
+    box-shadow: 0 0 0 rgba(0,0,0,0), 0 0 0 rgba(0,0,0,0);
+    transition: ease-in .8s;
+  
+      &:hover {
+        top: calc( 50% - 2px );
+        border: 1px solid rgba(#F2F4F8, 0);
+        box-shadow: 0 15px 20px rgba(0,0,0,.05), 0 0 5px rgba(0,0,0,.1);
+        cursor: pointer;
+      }
+      
+      // &:active {
+      //   top: 50%;
+      //   box-shadow: 0 5px 10px rgba(0,0,0,.05), 0 0 2px rgba(0,0,0,.1);
+      //   transition: ease-in-out .1s;
+      // }
+  }
+
+  & div {
+
+    & img {
+      cursor: pointer;
+      width: 18rem;
+      height: 16rem;
+      border-radius: 5%;
+    }
+  
+    .priceName{
+      @include mixin.flex($horizontal:space-between,$vertical:center);
+      margin-top: 1rem;
+
+      & div p{
+        margin: 0.1rem;
+      }
+
+      & div p:nth-child(2){
+        display: inline-block;
+      }
+
+      & div p:nth-child(3){
+        display: inline-block;
+        font-size: 0.9rem;
+        margin-left: 0.5rem;
+        color: mixin.$medium-gray;
+      }
+    }
+  
+    .cartIcon{
+      @include mixin.flex($horizontal:center,$vertical:center);
+      width: 2.5rem;
+      height: 2.5rem;
+      background-color: mixin.$primary-color;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      }
+  }
+}
+
+.loader{
+  color: mixin.$primary-color;
+  text-align: center;
+  width: calc(100vw - 19.25rem);
+  // margin-left: 50%;
+  height: calc(100vh - 25rem);
+  @include mixin.flex($horizontal:center,$vertical:center);
+}
+
+.toastMessage{
+  background-color: mixin.$primary-color;
+  color: mixin.$white;
+}
+
+
